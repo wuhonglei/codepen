@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/tailwindcss/2.0.0-alpha.5/tailwind.min.css" rel="stylesheet">
+    <style lang="">
+        html {
+            font-size: 16px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        ul {
+            border-top: 1px solid #e5e5e5;
+        }
+        
+        ul li {
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        ul li p {
+            margin-bottom: 11.2px;
+        }
+        
+        ul li h3 {
+            display: flex;
+            align-items: center;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        
+        ul li h3::before {
+            display: inline-block;
+            margin-left: 7px;
+            margin-right: 14px;
+            content: '';
+            width: 7px;
+            height: 7px;
+            border: 1px solid currentColor;
+            border-left: none;
+            border-bottom: none;
+            transform: rotateZ(45deg);
+            transition: transform 0.3s;
+        }
+        /* 展开 */
+        
+        ul li h3.unfold::before {
+            transform: rotateZ(135deg);
+        }
+        
+        ul li h3:not(.unfold)+p {
+            height: 0;
+            display: none;
+        }
+        
+        ul li h3:hover {
+            cursor: pointer;
+        }
+        
+        ul li p {
+            transition: height 3s ease;
+        }
+        
+        .opacity-0 {
+            opacity: 0;
+        }
+        
+        .opacity-1 {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto pt-10">
+        <h1>jQuery accordion
+        </h1>
+        <ul class="my-4">
+            <li>
+                <h3>Lorem ipsum</h3>
+                <p class="opacity-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, quibusdam! Voluptate nobis, beatae tempora praesentium, illum quis illo, maiores quod similique placeat, saepe mollitia dolor officiis aspernatur deleniti debitis commodi!</p>
+            </li>
+            <li>
+                <h3>Dolor sit amet</h3>
+                <p class="opacity-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quos, accusamus! Enim labore totam dicta quibusdam? Eveniet quis asperiores reprehenderit eaque atque in iure voluptate, explicabo, placeat, id earum architecto!</p>
+            </li>
+            <li>
+                <h3>Consectetur adipisicing elit</h3>
+                <p class="opacity-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quos, accusamus! Enim labore totam dicta quibusdam? Eveniet quis asperiores reprehenderit eaque atque in iure voluptate, explicabo, placeat, id earum architecto!</p>
+            </li>
+        </ul>
+        <script>
+            // 1. 箭头折叠动画
+            // 2. 内容显示动画
+
+            let ul = document.querySelector('ul');
+            ul.onclick = function(event) {
+                let isHeader = (event.target.tagName.toLowerCase() === 'h3');
+                if (!isHeader) {
+                    return;
+                }
+
+                let target = event.target;
+                target.classList.toggle('unfold');
+                let height = target.nextElementSibling.offsetHeight; // 强制进行 UI 渲染
+                setTimeout(() => {
+                    target.nextElementSibling.style.height = height ? (target.nextElementSibling.offsetHeight + 'px') : 0;
+                }, 1);
+            };
+        </script>
+    </div>
+</body>
+
+</html>
