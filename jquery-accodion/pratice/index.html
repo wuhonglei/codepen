@@ -63,15 +63,9 @@
         }
         
         ul li p {
+            overflow: hidden;
+            background-color: antiquewhite;
             transition: height 3s ease;
-        }
-        
-        .opacity-0 {
-            opacity: 0;
-        }
-        
-        .opacity-1 {
-            opacity: 1;
         }
     </style>
 </head>
@@ -83,15 +77,15 @@
         <ul class="my-4">
             <li>
                 <h3>Lorem ipsum</h3>
-                <p class="opacity-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, quibusdam! Voluptate nobis, beatae tempora praesentium, illum quis illo, maiores quod similique placeat, saepe mollitia dolor officiis aspernatur deleniti debitis commodi!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, quibusdam! Voluptate nobis, beatae tempora praesentium, illum quis illo, maiores quod similique placeat, saepe mollitia dolor officiis aspernatur deleniti debitis commodi!</p>
             </li>
             <li>
                 <h3>Dolor sit amet</h3>
-                <p class="opacity-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quos, accusamus! Enim labore totam dicta quibusdam? Eveniet quis asperiores reprehenderit eaque atque in iure voluptate, explicabo, placeat, id earum architecto!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quos, accusamus! Enim labore totam dicta quibusdam? Eveniet quis asperiores reprehenderit eaque atque in iure voluptate, explicabo, placeat, id earum architecto!</p>
             </li>
             <li>
                 <h3>Consectetur adipisicing elit</h3>
-                <p class="opacity-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quos, accusamus! Enim labore totam dicta quibusdam? Eveniet quis asperiores reprehenderit eaque atque in iure voluptate, explicabo, placeat, id earum architecto!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quos, accusamus! Enim labore totam dicta quibusdam? Eveniet quis asperiores reprehenderit eaque atque in iure voluptate, explicabo, placeat, id earum architecto!</p>
             </li>
         </ul>
         <script>
@@ -106,11 +100,10 @@
                 }
 
                 let target = event.target;
-                target.classList.toggle('unfold');
+                target.nextElementSibling.style.height = 0;
+                target.nextElementSibling.style.display = 'block';
                 let height = target.nextElementSibling.offsetHeight; // 强制进行 UI 渲染
-                setTimeout(() => {
-                    target.nextElementSibling.style.height = height ? (target.nextElementSibling.offsetHeight + 'px') : 0;
-                }, 1);
+                target.nextElementSibling.style.height = '72px';
             };
         </script>
     </div>
