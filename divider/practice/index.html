@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>divider 练习</title>
+    <style lang="">
+        .divider {
+            display: flex;
+            /* flex-direction: row-reverse; */
+            align-items: center;
+            width: 200px;
+            height: 20px;
+            margin-top: 16px;
+            margin-bottom: 16px;
+            background-color: wheat;
+        }
+        
+        .divider::before {
+            content: '';
+            flex: 0.05;
+            border-top: 1px dashed gray;
+        }
+        
+        .divider::after {
+            content: '';
+            flex: 0.95;
+            border-top: 1px dashed gray;
+        }
+        
+        .title {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divider">
+        <!-- <span class="title">文字</span> -->
+    </div>
+</body>
+
+</html>

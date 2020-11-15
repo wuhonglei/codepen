@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <style lang="">
+        body {
+            padding: 8px;
+        }
+        
+        .block {
+            width: 670px;
+        }
+        
+        .block * {
+            box-sizing: border-box;
+        }
+        
+        .order {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 49px;
+            border-right: 1px solid rgba(128, 128, 128, 0.25);
+        }
+        
+        .block>div:not(:last-of-type) {
+            margin-bottom: 10px;
+        }
+        
+        .question-container {
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .question {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            padding-left: 15px;
+            height: 49px;
+            cursor: pointer;
+        }
+        
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            border-top: 1px solid rgba(128, 128, 128, 0.25);
+            transition: max-height 0.5s;
+        }
+        
+        .answer.checked {
+            max-height: 200px;
+        }
+        
+        .answer div {
+            padding: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Frequently Asked Questions
+        </h2>
+        <div class="block">
+            <div v-for="(item,index) in list" :key="item.id">
+                <div class="question-container">
+                    <div class="order">{{index + 1}}</div>
+                    <div class="question" @click="checked = item.id">{{item.question}}</div>
+                </div>
+                <div class="answer" :class="{'checked': hasChecked(item.id)}">
+                    <div>{{item.answer}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    checked: 1,
+                    list: [{
+                        id: 1,
+                        question: 'What Is Your Name?',
+                        answer: 'My name is Matt, although I go by mxttsco online which originates from my name "Matthew Scott". I replaced the "a" with an "x" to be cool... It worked, right?'
+                    }, {
+                        id: 2,
+                        question: 'What Do You Do?',
+                        answer: 'I\'m a web developer by day,and a web developer by night.I live a very exciting life.'
+                    }, {
+                        id: 3,
+                        question: 'What Is This Sorcery?!',
+                        answer: 'Nothing magical going on here. All we\'re doing is taking advantage of radio inputs and styling adjacent divs to display when an input is selected.'
+                    }, {
+                        id: 4,
+                        question: 'How Long Have You Been Developing For?',
+                        answer: 'I\'ve been developing websites for nearly 10 years,with the majority of those years spent using WordPress.'
+                    }, {
+                        id: 5,
+                        question: 'Where Can I Find You?',
+                        answer: 'I\'m on Twitter!You can follow me by clicking on the link to the right of this box!'
+                    }]
+                }
+            },
+            methods: {
+                hasChecked(id) {
+                    return id === this.checked;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
