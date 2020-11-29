@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style lang="">
+        .container {
+            display: flex;
+            width: 400px;
+            height: 400px;
+            background-color: beige;
+        }
+        
+        .item {
+            margin: auto;
+            width: 100px;
+            height: 10px;
+            background-color: blue;
+            transition: all 0.3s;
+        }
+        
+        .item:hover {
+            /* transform: rotateX(180deg) rotateZ(45deg); */
+            transform: rotateZ(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style lang="">
+        .container {
+            display: flex;
+            width: 200px;
+            height: 100px;
+            background-color: antiquewhite;
+        }
+        
+        .left {
+            width: 50px;
+            height: 100%;
+            background-color: aqua;
+        }
+        
+        .content {
+            flex: 1;
+            overflow: auto;
+            width: 0;
+        }
+        
+        .text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            background-color: blue;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">left</div>
+        <div class="content">
+            <div class="text">
+                containercontainercontainercontainer
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

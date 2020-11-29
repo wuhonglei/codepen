@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style lang="">
+        .container {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .item {
+            display: inline-block;
+            font-weight: 600;
+            font-size: 36px;
+            cursor: pointer;
+        }
+        
+        .progress {
+            width: 0;
+            height: 5px;
+            background-color: rgb(33, 108, 87);
+        }
+        
+        .item>.text,
+        .item>.progress {
+            transition: all 0.3s;
+        }
+        
+        .item:hover {
+            color: rgb(33, 108, 87);
+        }
+        
+        .item:hover .progress {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <progress value="50" max="100">70 %</progress>
+    <div class="container">
+        <div class="item">
+            <div class="text">Home</div>
+            <div class="progress"></div>
+        </div>
+    </div>
+</body>
+
+</html>
